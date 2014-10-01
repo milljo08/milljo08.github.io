@@ -1,0 +1,45 @@
+<html>
+   <body>
+      <h1>Hello World!!</h1>
+      <button onclick="changeThisPageFunc();">Click Me!</button>
+      <main>
+         <h1>Hello Main</h2>
+         <p>The quick brown fox jumped over the lazy dog.</p>
+      </main>
+       <aside>
+           <h2>Hello</h2>
+       </aside>
+       <label for = "redi">Red:</label>
+       <input type="text" id="redi" value ="255" /> <br>
+       <label for ="greeni">Green:</label>
+       <input type="text" id="greeni" value ="255" /> <br>
+       <label for ="bluei">Blue:</label>
+       <input type="text" id="bluei" value ="255" /> <br>
+       <button id="doit" onclick="changeColor()">Change Color</button>
+       <script type="text/javascript">
+       changeColor = function()
+       var red, green, blue;
+       red = document.querySelector("redi");
+       green = document.querySelector("greeni");
+       blue = document.querySelector("bluei");
+       newColor = "rgb("+ red.value +","+ green.value +","+ blue.value +")"
+           document.body.style.backgroundColor="newColor"
+       
+           
+           
+       <label for="xyz">Type something</label>
+       
+      <script type="text/javascript">
+         
+          changeThisPageFunc = function() {
+            var myMain;
+            document.body.style.backgroundColor = "lightblue";
+            myMain = document.querySelector('aside');
+            myMain.innerHTML = "<h3>Where have all the flowers gone?<h3>";
+            myMain.style.height = "50px";
+            myMain.style.width = "50%";
+            myMain.style.backgroundColor = "lightgreen";
+         }
+      </script>
+   </body>
+</html>
