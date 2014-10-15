@@ -1,0 +1,84 @@
+<html>
+ 
+<body>
+    <link rel=stylesheet href= app.css>
+    <h1>My Todo List</h1>
+  
+    
+    <main> 
+    	<ul id="busylist" type=none></ul>
+   
+    
+    </main>
+    
+    <aside>
+    	<label for ="busylist">Enter Task</label>
+    	<input type="text" id="taskbox" size=40 value="enter task here">
+    	<select id="priority">
+         	<option>High</option>
+         	<option>Medium</option>
+         	<option>Low</option>
+    	</select>
+   		<button onclick="addTask()">Add</button>
+    </aside>
+    <script type="text/javascript">
+    var taskcount = 10;   
+    doneTask=function(){
+        
+        if(this.checked){
+        	this.parentNode.classList.add("done");
+        	} else{
+        	this.parentNode.classList.remove("done");
+        	}
+        	localSave()
+        }
+    addTask = function() {
+        var newli;
+        task= document.querySelector("#taskbox");
+        taskList = document.querySelector("#busylist");
+        priorityValue = document.querySelector("#priority").value;
+        taskText = task.value;
+        insertTaskInTree(taskText,priorityValue);        
+        task.value = "";
+        localSave()
+        }
+        
+        
+    localSave= function() {
+    	res = []
+    	var i;
+    	allEntries = document.querySelectorAll('li')
+    	for(i=0; i < allEntries.length; i++){
+    		if (allEntries[i].classList.contains("done")) {
+    			res.push(allEntries[i].innerText);
+    			}
+    		}
+    		
+    		localStorage.setItem("todoDatabase",JSON.stringify(res))
+    		}
+        
+    restoreList = function(){
+    	allTasks = JSON.parse(localStorage.getItem("todoDatabase"));
+    	for(i = 0; i < allTasks.legth; i++){
+    	insertTaskInTree(allTasks[i],"Medium");
+    		}
+        }
+        
+        
+	 insertTaskInTree = function(taskText, priorityValue)  {    	
+    	taskList = document.querySelector("#busylist");    	  
+    	newli = document.createElement('li');
+    	newli.className = priorityValue;    	
+    	newcb = document.createElement('input');
+    	newcb.type = 'checkbox';
+    	newcb.onclick = doneTask;    	
+    	t = document.createTextNode(taskText);    	
+    	newli.appendChild(newcb);
+    	newli.appendChild(t);
+    	taskList.appendChild(newli);
+    
+		}
+  
+    </script>
+</body>
+</html>

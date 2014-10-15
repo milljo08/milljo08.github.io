@@ -1,0 +1,27 @@
+h1{
+	font-size: 45pt;
+	color: gold; 
+	text-shadow: 5px 5px 5px black;
+	background-color: lightblue;
+}
+main {
+             margin-top: 0px;
+             float: ;
+             width: 60%;
+             height: 400px;
+            font-size: 28pt;
+             background-color: lightblue;
+             border: 12px;
+         }
+input[type='checkbox'] {
+    
+    width:30px;
+    height:20px;
+}
+.done {
+  text-decoration: line-through;
+}
+<style>
+
+</style>
+
